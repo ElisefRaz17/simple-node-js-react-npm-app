@@ -8,14 +8,14 @@ pipeline {
         }
   stage('Test') { 
             steps {
-                sh './jenkins/scripts/test.sh' 
+                bat './jenkins/scripts/test.bat' 
             }
         }
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                bat './jenkins/scripts/deliver.bat' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh './jenkins/scripts/kill.sh' 
+                bat './jenkins/scripts/kill.bat' 
             }
         }
     }
